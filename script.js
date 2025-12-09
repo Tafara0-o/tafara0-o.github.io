@@ -119,36 +119,8 @@ filterBtns.forEach(btn => {
 
 
 
-// Form Submission
-const contactForm = document.querySelector('.contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form values
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const message = contactForm.querySelector('textarea').value;
-
-        // Basic validation
-        if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
-            alert('Please fill out all fields');
-            return;
-        }
-
-        // Here you would typically send this to a server
-        console.log({
-            name,
-            email,
-            message
-        });
-
-        // Reset form
-        contactForm.reset();
-        alert('Thank you for your message! I will get back to you soon.');
-    });
-}
+// Form Submission - Let Formspree handle it naturally
+// The form will submit to Formspree with method="POST" and action attribute
 
 // Image Modal Functionality
 const modal = document.getElementById('imageModal');
