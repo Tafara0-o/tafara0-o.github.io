@@ -383,7 +383,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Scroll Reveal Animation for Gallery Items
-const observerOptions = {
+const revealObserverOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
@@ -396,10 +396,9 @@ const revealObserver = new IntersectionObserver((entries) => {
             revealObserver.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, revealObserverOptions);
 
 // Observe all gallery items
-const galleryItems = document.querySelectorAll('.gallery-item');
 galleryItems.forEach(item => {
     revealObserver.observe(item);
 });

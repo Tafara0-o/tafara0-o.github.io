@@ -318,12 +318,6 @@ section:not(.active) {
 .cta-button:active {
     transform: translateY(-1px);
 }
-}
-
-.cta-button:hover {
-    background: var(--primary-color);
-    color: var(--secondary-color);
-}
 
 /* Container */
 .container {
