@@ -374,13 +374,16 @@ if (urlParams.get('status') === 'success') {
     }
 }
 
-// Parallax Effect on Hero Section
+// Parallax Effect on Hero Section (disabled for compatibility)
+// Parallax can be re-enabled if needed
+/*
 window.addEventListener('scroll', () => {
     if (hero) {
         const scrollY = window.scrollY;
         hero.style.backgroundPosition = `center ${scrollY * 0.5}px`;
     }
 });
+*/
 
 // Scroll Reveal Animation for Gallery Items
 const revealObserverOptions = {
