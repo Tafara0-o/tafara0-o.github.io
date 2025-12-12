@@ -4,6 +4,7 @@ const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const logoLink = document.querySelector('.logo-link');
 const sections = document.querySelectorAll('section');
+const hero = document.querySelector('.hero');
 
 // Initialize first section as active
 if (sections.length > 0) {
@@ -372,3 +373,33 @@ if (urlParams.get('status') === 'success') {
         }, 5000);
     }
 }
+
+// Parallax Effect on Hero Section
+window.addEventListener('scroll', () => {
+    if (hero) {
+        const scrollY = window.scrollY;
+        hero.style.backgroundPosition = `center ${scrollY * 0.5}px`;
+    }
+});
+
+// Scroll Reveal Animation for Gallery Items
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            entry.target.style.animationDelay = `${index * 0.1}s`;
+            entry.target.classList.add('scroll-reveal');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe all gallery items
+const galleryItems = document.querySelectorAll('.gallery-item');
+galleryItems.forEach(item => {
+    revealObserver.observe(item);
+});

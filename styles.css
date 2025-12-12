@@ -118,6 +118,24 @@ body {
     }
 }
 
+/* Scroll Reveal Animation */
+@keyframes revealFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Portfolio item on scroll animation */
+.gallery-item.scroll-reveal {
+    animation: revealFromBottom 0.6s ease-out forwards;
+    opacity: 0;
+}
+
 section {
     animation: fadeIn 0.8s ease-out;
 }
@@ -215,9 +233,28 @@ section:not(.active) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+    background: url('images/plight_of_man.png') center/cover fixed;
+    background-attachment: fixed;
     text-align: center;
     padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h2 {
@@ -226,28 +263,61 @@ section:not(.active) {
     margin-bottom: 1rem;
     letter-spacing: 2px;
     line-height: 1.2;
-    animation: slideUp 0.8s ease-out;
+    color: #ffffff;
+    animation: slideUp 1s ease-out;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
     font-size: 1.5rem;
-    color: var(--accent-color);
+    color: #e0e0e0;
     margin-bottom: 2rem;
     letter-spacing: 1px;
-    animation: slideUp 0.8s ease-out 0.2s both;
+    animation: slideUp 1s ease-out 0.2s both;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 2px solid #ffffff;
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.95rem;
     letter-spacing: 1px;
     transition: all var(--transition);
     cursor: pointer;
-    animation: slideUp 0.8s ease-out 0.4s both;
+    animation: slideUp 1s ease-out 0.4s both;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.cta-button:hover {
+    color: #000;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.cta-button:hover::before {
+    left: 0;
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
+}
 }
 
 .cta-button:hover {
