@@ -231,12 +231,13 @@ section.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('images/mununuri_wemhuri.jpeg') center/cover;
+    background: url('images/portrait_of_tendekai.jpg') center/cover;
     background-attachment: scroll;
     text-align: center;
     padding: 2rem;
     position: relative;
     overflow: hidden;
+    transition: background-image 1.5s ease-in-out;
 }
 
 .hero::before {

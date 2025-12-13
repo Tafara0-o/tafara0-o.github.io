@@ -374,6 +374,24 @@ if (urlParams.get('status') === 'success') {
     }
 }
 
+// Slideshow for Hero Background
+const images = [
+    'images/portrait_of_tendekai.jpg',
+    'images/portrait_of_russell.jpg'
+];
+
+let currentImageIndex = 0;
+
+function rotateHeroImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    hero.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+}
+
+// Change image every 6 seconds
+if (hero) {
+    setInterval(rotateHeroImage, 6000);
+}
+
 // Parallax Effect on Hero Section (disabled for compatibility)
 // Parallax can be re-enabled if needed
 /*
