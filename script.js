@@ -375,16 +375,16 @@ if (urlParams.get('status') === 'success') {
 }
 
 // Slideshow for Hero Background
-const images = [
+const heroImages = [
     'images/portrait_of_tendekai.jpg',
     'images/portrait_of_russell.jpg'
 ];
 
-let currentImageIndex = 0;
+let heroImageIndex = 0;
 
 function rotateHeroImage() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-    hero.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+    heroImageIndex = (heroImageIndex + 1) % heroImages.length;
+    hero.style.backgroundImage = `url('${heroImages[heroImageIndex]}')`;
 }
 
 // Change image every 6 seconds
